@@ -9,6 +9,5 @@ class Division {
     	this.health = soliderNum * soliderHp;
   }
 };
-
 module.exports = Division;
 

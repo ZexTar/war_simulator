@@ -6,7 +6,7 @@ class Army {
 		this.divisions = [];
 
 	}
-	deployDivisions (number){
+	deployDivisions(number){
   		while (number){
   			this.divisions.push(new Division());
   			number--;
