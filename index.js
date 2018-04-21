@@ -1,11 +1,13 @@
 const Division = require('./units/division.js');
 const Army = require('./units/army.js');
+const toArms = require('./simulator/toArms.js');
 const searchTarget = require('./simulator/searchTarget.js');
+
 
 //testing units creation
 
 const divisionGenerator = () => {
-	return Math.ceil(Math.random() * 5);
+	return Math.ceil(Math.random() * 4) + 1;
 }
 
 let b = new Division();
@@ -14,8 +16,13 @@ Europe.deployDivisions(divisionGenerator());
 let Isil = new Army('jihad');
 Isil.deployDivisions(divisionGenerator());
 
-//testing searchTargetEngine
+/*testing search engine
+console.log(searchTarget(Europe, Isil));
+*/
 
-let [attacker, victim] = searchTarget(Europe, Isil); 
-console.log(attacker, victim);
+//testing battle engine
+let [[attArmy, attDivision], [vicArmy, vicDivision]] = searchTarget(Europe, Isil);
+let winner = toArms(Europe, Isil);
+console.log(`Army ${winner.armyName} HAS WON THE BATTLE!`)
+
 

@@ -7,7 +7,8 @@ class Division {
     	this.soliders = soliderNum;
     	this.damage = soliderNum * Math.round(Math.random()*5);
     	this.health = soliderNum * soliderHp;
-  }
+  };
 };
+
 module.exports = Division;
 
