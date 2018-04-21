@@ -22,7 +22,7 @@ console.log(searchTarget(Europe, Isil));
 
 //testing battle engine
 let [[attArmy, attDivision], [vicArmy, vicDivision]] = searchTarget(Europe, Isil);
-let winner = toArms(Europe, Isil);
-console.log(`Army ${winner.armyName} HAS WON THE BATTLE!`)
+toArms(Europe, Isil);
+
 
 

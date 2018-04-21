@@ -6,17 +6,36 @@ const isDivActive = (army) => {
 
 const toArms = (army1, army2) => {
 	let [firstArmy, secondArmy] = [army1, army2];
-	while (firstArmy.divisions.length > 0 && secondArmy.divisions.length > 0){
-		let [[attArmy, attDivision], [vicArmy, vicDivision]] = searchTarget(firstArmy, secondArmy);
-		if (attArmy === firstArmy)
-		 	secondArmy.divisions[vicDivision].health -= firstArmy.divisions[attDivision].damage;
-		else
-		 	firstArmy.divisions[vicDivision].health -= secondArmy.divisions[attDivision].damage;
-		firstArmy.divisions = isDivActive(firstArmy);
-		secondArmy.divisions = isDivActive(secondArmy);
-		console.log(firstArmy, secondArmy);
-	}
-	return (firstArmy.divisions.length === 0)? secondArmy: firstArmy;
+	const aBit = () => new Promise((res, rej) => setTimeout(res, 5000));
+	(async function fighToDeath(){
+		while (firstArmy.divisions.length > 0 && secondArmy.divisions.length > 0){
+			let [[attArmy, attDivision], [vicArmy, vicDivision]] = searchTarget(firstArmy, secondArmy);
+			if (attArmy === firstArmy){
+			 	secondArmy.divisions[vicDivision].health -= firstArmy.divisions[attDivision].damage;
+			 	console.log([`division ${attDivision} of ${firstArmy.armyName} dealt`,
+			 	`${firstArmy.divisions[attDivision].damage} damage to ${vicDivision} division of`,
+			 	`${secondArmy.armyName}`].join(' '));
+			}
+			else{
+			 	firstArmy.divisions[vicDivision].health -= secondArmy.divisions[attDivision].damage;
+			 	console.log([`division ${attDivision} of ${secondArmy.armyName} dealt`,
+			 	`${secondArmy.divisions[attDivision].damage} damage to ${vicDivision} division of`,
+			 	`${firstArmy.armyName}`].join(' '));
+			}
+			firstArmy.divisions = isDivActive(firstArmy);
+			secondArmy.divisions = isDivActive(secondArmy);
+			console.log(firstArmy, secondArmy);
+			if (firstArmy.divisions.length === 0){
+				let winner = secondArmy;
+				console.log(`Army ${winner.armyName} HAS WON THE BATTLE!`);
+			}
+			else if (secondArmy.divisions.length === 0) {
+				let winner = firstArmy;
+				console.log(`Army ${winner.armyName} HAS WON THE BATTLE!`);
+			}
+			await aBit();
+		}
+	})();
 };
 
 module.exports = toArms;
