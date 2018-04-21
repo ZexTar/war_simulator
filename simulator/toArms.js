@@ -12,13 +12,13 @@ const toArms = (army1, army2) => {
 			let [[attArmy, attDivision], [vicArmy, vicDivision]] = searchTarget(firstArmy, secondArmy);
 			if (attArmy === firstArmy){
 			 	secondArmy.divisions[vicDivision].health -= firstArmy.divisions[attDivision].damage;
-			 	console.log([`division ${attDivision} of ${firstArmy.armyName} dealt`,
+			 	console.log([`Conflict -> Division ${attDivision} of ${firstArmy.armyName} dealt`,
 			 	`${firstArmy.divisions[attDivision].damage} damage to ${vicDivision} division of`,
 			 	`${secondArmy.armyName}`].join(' '));
 			}
 			else{
 			 	firstArmy.divisions[vicDivision].health -= secondArmy.divisions[attDivision].damage;
-			 	console.log([`division ${attDivision} of ${secondArmy.armyName} dealt`,
+			 	console.log([`Conflict -> Division ${attDivision} of ${secondArmy.armyName} dealt`,
 			 	`${secondArmy.divisions[attDivision].damage} damage to ${vicDivision} division of`,
 			 	`${firstArmy.armyName}`].join(' '));
 			}
