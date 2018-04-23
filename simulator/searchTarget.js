@@ -15,7 +15,7 @@ const searchTarget = (firstArmy, secondArmy) => {
 	[firstArmy, secondArmy] : [secondArmy, firstArmy]; 
 	let [attDivision, vicDivision] = attProbDivision(attArmy.divisions.length, vicArmy.divisions.length);
 	return [[attArmy, attDivision], [vicArmy, vicDivision]]; 
-}
+};
 
 module.exports = searchTarget;
 

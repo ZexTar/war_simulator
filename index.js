@@ -11,9 +11,9 @@ const divisionGenerator = () => {
 }
 
 let b = new Division();
-let Europe = new Army('EU');
+let Europe = new Army('SRB ARMY');
 Europe.deployDivisions(divisionGenerator());
-let Isil = new Army('jihad');
+let Isil = new Army('CRO ARMY');
 Isil.deployDivisions(divisionGenerator());
 
 /*testing search engine
