@@ -4,6 +4,7 @@ class Army {
 	constructor(armyName){
 		this.armyName = armyName;
 		this.divisions = [];
+		this.strategy = 'default';
 
 	}
 	deployDivisions(number){
@@ -11,6 +12,9 @@ class Army {
   			this.divisions.push(new Division());
   			number--;
   		}
+	}
+	changeStrat(stratname){
+		this.strategy = stratname;
 	}
 }
 module.exports = Army;

@@ -24,7 +24,6 @@ const toArms = (army1, army2) => {
 	`total of ${armySolNum(secondArmy)} soliders with firepower of ${armyFirepower(secondArmy)}`,
 	'damage total \n'].join(' '));
 	const fightEvents = (army1, army2, attDivision, vicDivision) => {
-		//console.log(firstArmy, secondArmy);
 		let attacker = army1.divisions[attDivision];
 		let victim = army2.divisions[vicDivision];
 		const currentDivLvl = attacker.lvl;

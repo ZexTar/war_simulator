@@ -11,18 +11,23 @@ const divisionGenerator = () => {
 }
 
 let b = new Division();
-let Europe = new Army('SRB ARMY');
-Europe.deployDivisions(divisionGenerator());
-let Isil = new Army('CRO ARMY');
-Isil.deployDivisions(divisionGenerator());
+let Serbia = new Army('SRB ARMY');
+Serbia.deployDivisions(divisionGenerator());
+let Croatia = new Army('CRO ARMY');
+Croatia.deployDivisions(divisionGenerator());
 
 /*testing search engine
-console.log(searchTarget(Europe, Isil));
+console.log(searchTarget(Serbia, Croatia));
 */
 
 //testing battle engine
-let [[attArmy, attDivision], [vicArmy, vicDivision]] = searchTarget(Europe, Isil);
-toArms(Europe, Isil);
+let [[attArmy, attDivision], [vicArmy, vicDivision]] = searchTarget(Serbia, Croatia);
+toArms(Serbia, Croatia);
 
+
+
+Serbia.changeStrat('');
+
+console.log(Serbia);
 
 
