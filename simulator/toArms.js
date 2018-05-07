@@ -38,7 +38,7 @@ const toArms = (army1, army2) => {
 		if (currentDivLvl < Math.floor(attacker.lvl))
 		console.log(`division ${attDivision + 1} of ${army1.armyName} has just lvled up!!! \n`);	
 };
-	const aBit = () => new Promise((res, rej) => setTimeout(res, 1000));
+	const aBit = () => new Promise((res, rej) => setTimeout(res, 100));
 	(async function fighToDeath(){
 		while (firstArmy.divisions.length > 0 && secondArmy.divisions.length > 0){
 			let [[attArmy, attDivision], [vicArmy, vicDivision]] = searchTarget(firstArmy, secondArmy);

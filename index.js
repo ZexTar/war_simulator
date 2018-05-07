@@ -24,9 +24,8 @@ console.log(searchTarget(Serbia, Croatia));
 let [[attArmy, attDivision], [vicArmy, vicDivision]] = searchTarget(Serbia, Croatia);
 toArms(Serbia, Croatia);
 
-
-
-Serbia.changeStrat('');
+//testing strats
+Serbia.changeStrat('attack strongest');
 
 console.log(Serbia);
 
