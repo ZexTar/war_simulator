@@ -13,7 +13,7 @@ const attProbDivision = (divNumAA, divNumVA) => {
 const highestDmgDiv = (army) => {
 	let divDmg = army.divisions.map(division => division.damage);
 	let highestDmg = divDmg [0];
-	highestDmgIndex = 0;
+	let highestDmgIndex = 0;
 	for (let i = 0; i < divDmg.length; i++){
 		if (divDmg[i] > highestDmg){
 			highestDmg = divDmg[i];
@@ -27,10 +27,9 @@ const searchTarget = (firstArmy, secondArmy) => {
 	console.log(firstArmy, secondArmy);
 	let [attArmy, vicArmy] = (attProbArmy() === 'firstArmy') ? 
 	[firstArmy, secondArmy] : [secondArmy, firstArmy];
-	let [attDivision, vicDivision] = (attArmy.strategy === 'default')?
-	attProbDivision(attArmy.divisions.length, vicArmy.divisions.length)
-	let [attDivision, vicDivision] = (attArmy.strategy === 'attack strongest')?
-	[highestDmgDiv(attArmy), highestDmgDiv(vicArmy)];
+	let [attDivision, vicDivision] = 
+	(attArmy.strategy === 'default') ? attProbDivision(attArmy.divisions.length, vicArmy.divisions.length)
+	:(attArmy.strategy === 'attack strongest') ? [highestDmgDiv(attArmy), highestDmgDiv(vicArmy)]
 	:null
 	console.log(attDivision, vicDivision);
 	return [[attArmy, attDivision], [vicArmy, vicDivision]]; 
